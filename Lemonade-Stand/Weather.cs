@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lemonade-Stand
+namespace LemonadeStand
 {
     class Weather
     {
@@ -15,5 +15,5 @@ namespace Lemonade-Stand
     }
     // member methods
 
-}
+    }
 }

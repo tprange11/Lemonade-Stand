@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lemonade-Stand
+namespace LemonadeStand
 {
     public static class User_Interface
     {

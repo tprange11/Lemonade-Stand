@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lemonade-Stand
+namespace LemonadeStand
 {
     class Player
     {
@@ -16,5 +16,5 @@ namespace Lemonade-Stand
     }
     // member methods
 
-}
+    }
 }

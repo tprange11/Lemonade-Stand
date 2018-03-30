@@ -8,7 +8,7 @@ using System.Data.Common;
 using System.Data.SqlClient;
 
 
-namespace Lemonade_Stand
+namespace LemonadeStand
 {
     class Program
     {
