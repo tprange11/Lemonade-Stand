@@ -1,0 +1,6 @@
+﻿
+SqlConnection issues
+	Needed to install NuGetPackage
+	Open Package Manager Console
+	Run 'install-package System.Data.SqlClient'
+
