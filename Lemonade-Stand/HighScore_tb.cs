@@ -45,14 +45,14 @@ namespace LemonadeStand
                         columnData.Add(reader.GetString(0));
                     }
                 }
-                var query1 = from data in sqlconn.HighScore
-                            where tbl.PlatypusID == yourPlatypusID
-                                   && tbl.Id > lastIDToIgnore
-                            select new
-                            {
-                                tbl.DuckbillName,
-                                tbl.Swamp
-                            };
+                //var query1 = from data in sqlconn.HighScore
+                //            where tbl.PlatypusID == yourPlatypusID
+                //                   && tbl.Id > lastIDToIgnore
+                //            select new
+                //            {
+                //                tbl.DuckbillName,
+                //                tbl.Swamp
+                //            };
                 // Check Error
                 if (result < 0)
                 {
