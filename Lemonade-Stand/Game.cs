@@ -7,6 +7,7 @@ namespace LemonadeStand
     class Game
     {
         // member variables
+        public int daysPlayed;
 
         // constructor
         public Game()
@@ -44,14 +45,17 @@ namespace LemonadeStand
             {
                 case "1":
                     User_Interface.DisplayMessage("\nYou choose to play for 7 days! \nPrees Enter to continue.");
+                    daysPlayed = 7;
                     User_Interface.GetUserInput();
                     break;
                 case "2":
                     User_Interface.DisplayMessage("\nYou choose to play for 14 days! \nPrees Enter to continue.");
+                    daysPlayed = 14;
                     User_Interface.GetUserInput();
                     break;
                 case "3":
                     User_Interface.DisplayMessage("\nYou choose to play for 30 days! \nPrees Enter to continue.");
+                    daysPlayed = 30;
                     User_Interface.GetUserInput();
                     break;
                 default:
@@ -60,6 +64,10 @@ namespace LemonadeStand
                     GetGameDuration();
                     break;
             }
+        }
+        public void PlayRound()
+        {
+
         }
     }
 }
