@@ -15,5 +15,9 @@ namespace LemonadeStand
         {
             return Console.ReadLine();
         }
+        public static void ClearScreen()
+        {
+            Console.Clear();
+        }
     }
 }
