@@ -15,6 +15,10 @@ namespace LemonadeStand
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Game game = new Game();
+            game.Introduction();
+            game.GetGameDuration();
+
             string connectionString = "SERVER = desktop-ca2gle0; DATABASE = LemonadeStand; Integrated Security=true;";
             SqlConnection sqlconn = new SqlConnection(connectionString);
             sqlconn.Open();
