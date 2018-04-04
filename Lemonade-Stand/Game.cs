@@ -41,26 +41,27 @@ namespace LemonadeStand
                 "\n\n\tPress 1 for 7 days." +
                 "\n\n\tPress 2 for 14 days." +
                 "\n\n\tPress 3 for 30 days.");
-            switch (User_Interface.GetUserInput())
+            switch (User_Interface.GetUserKey())
             {
-                case "1":
-                    User_Interface.DisplayMessage("\nYou choose to play for 7 days! \nPrees Enter to continue.");
+                case "D1":
+                    User_Interface.DisplayMessage("\nYou choose to play for 7 days!");
                     daysPlayed = 7;
-                    User_Interface.GetUserInput();
+                    User_Interface.Wait();
                     break;
-                case "2":
-                    User_Interface.DisplayMessage("\nYou choose to play for 14 days! \nPrees Enter to continue.");
+                case "D2":
+                    User_Interface.DisplayMessage("\nYou choose to play for 14 days!");
                     daysPlayed = 14;
-                    User_Interface.GetUserInput();
+                    User_Interface.Wait();
                     break;
-                case "3":
-                    User_Interface.DisplayMessage("\nYou choose to play for 30 days! \nPrees Enter to continue.");
+                case "D3":
+                    User_Interface.DisplayMessage("\nYou choose to play for 30 days!");
                     daysPlayed = 30;
-                    User_Interface.GetUserInput();
+                    User_Interface.Wait();
                     break;
                 default:
+                    User_Interface.ClearScreen();
                     User_Interface.DisplayMessage("\nInvalid choose. Press Enter to try again...");
-                    User_Interface.GetUserInput();
+                    User_Interface.Wait();
                     GetGameDuration();
                     break;
             }

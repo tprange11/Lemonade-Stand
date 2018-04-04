@@ -15,13 +15,22 @@ namespace LemonadeStand
     {
         static void Main(string[] args)
         {
-            
+            Game game = new Game();
+            Customer customer1 = new Customer();
+            Customer customer2 = new Customer();
+            Inventory inventory1 = new Inventory();
+            Inventory inventory2 = new Inventory();
+            Store store = new Store();
+            Weather weather1 = new Weather();
+            Weather weather2 = new Weather();
+            string action;
 
             Console.WriteLine("Introduciton:\n");
-            Game game = new Game();
             game.Introduction();
-            game.GetGameDuration();
+
             Player player1 = new Human();
+
+            
             Player player2 = null;
             switch (Human.SelectOpponent().ToLower())
             {
@@ -34,18 +43,47 @@ namespace LemonadeStand
                 default:
                     break;
             }
+            game.GetGameDuration();
             User_Interface.DisplayMessage(message: "Player1: " + player1.DisplayPlayerName() + "\tPlayer2: " + player2.DisplayPlayerName());  //Remove this line when done.
             int i = 0;
             while (game.daysPlayed > 0)
             {
                 i++;
+                User_Interface.ClearScreen();
                 User_Interface.DisplayMessage("day: " + i);
 
                 DateTime dt = DateTime.Now.AddDays(-game.daysPlayed);
-                String strDate = "";
-                strDate = dt.ToString("yyyyMMdd");
+                string strDate = dt.ToString("yyyyMMdd");
                 User_Interface.DisplayMessage("\t Weather date is: " + strDate);
-                Weather.GetWeather(strDate, "Germantown", "WI");
+                weather1.DisplayWeather(strDate, player1.city, player1.state);
+                player1.DisplayInventory();
+
+                while (store.GoingToStore())
+                {
+                    action = store.EnterStore();
+                    switch (action)
+                    {
+                        case "lemons":
+                            store.BuyMoreLemons(player1);
+                            break;
+                        case "sugar":
+                            store.BuyMoreSugar(player1);
+                            break;
+                        case "ice":
+                            store.BuyMoreIce(player1);
+                            break;
+                        case "cups":
+                            store.BuyMoreCups(player1);
+                            break;
+                    }
+
+                }
+                User_Interface.Wait();
+                customer1.GetNumberOfCustomers(weather1.conds);
+                customer1.GetPercentOfSales(Convert.ToInt32(weather1.maxtempi));
+                User_Interface.Wait();
+
+
                 game.daysPlayed -= 1;
             }
   
@@ -56,8 +94,7 @@ namespace LemonadeStand
             HighScore_tb.InsertPlayerScore("Todd", "2.67", sqlconn);
             HighScore_tb.GetTopTenScores(sqlconn);
             sqlconn.Close();
-            //Weather.GetWeather();
-            User_Interface.GetUserInput();
+            User_Interface.Exit();
 
             
             

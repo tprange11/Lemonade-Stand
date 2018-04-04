@@ -12,6 +12,8 @@ namespace LemonadeStand
         public Human()
         {
             SetPlayerName();
+            GetLocation();
+            Weather weather = new Weather();
 
         }
         // member methods

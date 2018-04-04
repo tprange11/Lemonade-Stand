@@ -7,17 +7,19 @@ namespace LemonadeStand
     class Player
     {
         // member variables
-        string todd;
         public string name;
-        public double wallet;
         public string city;
         public string state;
+        Wallet wallet = new Wallet();
+        Inventory inventory = new Inventory();
+        Customer customer = new Customer();
 
         // constructor
         public Player()
         {
-            wallet = 5.00;
            
+            wallet.TotalDollars = 20.00;
+            
         }
         // member methods
         public virtual string DisplayPlayerName()
@@ -30,13 +32,28 @@ namespace LemonadeStand
             User_Interface.DisplayMessage("What is your name?\n");
             name = User_Interface.GetUserInput();
         }
-        public void GetLocation()
+        public virtual void GetLocation()
         {
             User_Interface.DisplayMessage("\nWhat city is your Lemonade Stand in?");
             city = User_Interface.GetUserInput();
             User_Interface.DisplayMessage("\nWhat state is your Lemonade Stand in?");
             state = User_Interface.GetUserInput();
         }
-
+        public void UpdateWallet(double someNumber)
+        {
+            wallet.TotalDollars += someNumber;
+        }
+        public double GetWallet()
+        {
+            return wallet.TotalDollars;
+        }
+        public void AddLemons(int nbr)
+        {
+            inventory.AddLemons(nbr);
+        }
+        public void DisplayInventory()
+        {
+            inventory.DisplayInventory();
+        }
     }
 }
