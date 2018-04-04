@@ -34,16 +34,26 @@ namespace LemonadeStand
         public static void GetTopTenScores(SqlConnection sqlconn)
         {
             List<String> columnData = new List<String>();
-            String query = "SELECT TOP(10) name,score FROM dbo.HighScore ORDER BY score DESC";
+            String query = "SELECT TOP(10) name,score FROM LemonadeStand.dbo.HighScore ORDER BY score DESC";
             using (SqlCommand command = new SqlCommand(query, sqlconn))
             {
                 int result = command.ExecuteNonQuery();
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
-                    {
-                        columnData.Add(reader.GetString(0));
-                    }
+                    //List<T> list = new List<T>();
+                    //T obj = default(T);
+                    //while (reader.Read())
+                    //{
+                    //    obj = Activator.CreateInstance<T>();
+                    //    foreach (PropertyInfo prop in obj.GetType().GetProperties())
+                    //    {
+                    //        if (!object.Equals(dr[prop.Name], DBNull.Value))
+                    //        {
+                    //            prop.SetValue(obj, dr[prop.Name], null);
+                    //        }
+                    //    }
+                    //    list.Add(obj);
+                    //}
                 }
                 //var query1 = from data in sqlconn.HighScore
                 //            where tbl.PlatypusID == yourPlatypusID
@@ -56,7 +66,7 @@ namespace LemonadeStand
                 // Check Error
                 if (result < 0)
                 {
-                    Console.WriteLine("Error inserting data into Database!");
+                    Console.WriteLine("Error reading data from Database!");
                 }
             }
         }
